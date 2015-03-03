@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerCellClass</key>
+			<string>CalypsoCustomCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calyspo</string>
+			<key>key</key>
+			<string>masterEnabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Assistant Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>oneEnabled</string>
+			<key>label</key>
+			<string>Disable Voice Control</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Spotlight Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>twoEnabled</string>
+			<key>label</key>
+			<string>Disable Spotlight Search</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Lockscreen Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>threeEnabled</string>
+			<key>label</key>
+			<string>Disable LS Blur</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>fourEnabled</string>
+			<key>label</key>
+			<string>Disable LS Tint</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Folder Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>fiveEnabled</string>
+			<key>label</key>
+			<string>Allow Nested Folders</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Icon Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>sixEnabled</string>
+			<key>label</key>
+			<string>Never Show Beta Dot</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Animation Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calyspo/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>sevenEnabled</string>
+			<key>label</key>
+			<string>Faster Animations</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Please respring to apply any changes.</string>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>respring</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Respring</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>followTwitter:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Follow me on Twitter</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>followDingoTwitter:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Follow Dingo on Twitter</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Calypso</string>
+</dict>
+</plist>

@@ -1,0 +1,9 @@
+Package: com.tdogg9401.dingo.calypso
+Name: Calypso
+Depends: mobilesubstrate
+Version: 0.2.0
+Architecture: iphoneos-arm
+Description: Access many internal settings of iOS 8.
+Maintainer: T_Dogg_94 and a4twerks
+Author: T_Dogg_94 and a4twerks
+Section: Tweaks

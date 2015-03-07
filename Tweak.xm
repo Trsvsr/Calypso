@@ -1,13 +1,11 @@
-static BOOL masterEnabled;
-
-//what kind of variable names are these?
-static BOOL oneEnabled;
-static BOOL twoEnabled;
-static BOOL threeEnabled;
-static BOOL fourEnabled;
-static BOOL fiveEnabled;
-static BOOL sixEnabled;
-static BOOL sevenEnabled;
+BOOL masterEnabled;
+BOOL oneEnabled;
+BOOL twoEnabled;
+BOOL threeEnabled;
+BOOL fourEnabled;
+BOOL fiveEnabled;
+BOOL sixEnabled;
+BOOL sevenEnabled;
 
 %group EVERYTHING
 
@@ -42,7 +40,7 @@ static BOOL sevenEnabled;
 %hook SBFolderSettings
 -(bool) allowNestedFolders
 {
-    return fiveEnabled ? YES: %orig;
+    return fiveEnabled ? YES : %orig;
 }
 %end
 
@@ -65,43 +63,43 @@ static void loadPreferences() {
     NSNumber *tempVal;
 
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("masterEnabled"), CFSTR("red.dingo.calypso"));
-    masterEnabled = tempVal ? YES : [tempVal boolValue];
+    masterEnabled = !tempVal ? YES : [tempVal boolValue];
 
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("oneEnabled"), CFSTR("red.dingo.calypso"));
-    oneEnabled = tempVal ? YES : [tempVal boolValue];
+    oneEnabled = !tempVal ? YES : [tempVal boolValue];
 
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("twoEnabled"), CFSTR("red.dingo.calypso"));
-    twoEnabled = tempVal ? YES : [tempVal boolValue];
+    twoEnabled = !tempVal ? YES : [tempVal boolValue];
 
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("threeEnabled"), CFSTR("red.dingo.calypso"));
-    threeEnabled = tempVal ? YES : [tempVal boolValue];
+    threeEnabled = !tempVal ? YES : [tempVal boolValue];
 
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fourEnabled"), CFSTR("red.dingo.calypso"));
-    fourEnabled = tempVal ? YES : [tempVal boolValue];
+    fourEnabled = !tempVal ? YES : [tempVal boolValue];
 
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fiveEnabled"), CFSTR("red.dingo.calypso"));
-    fiveEnabled = tempVal ? YES : [tempVal boolValue];
+    fiveEnabled = !tempVal ? YES : [tempVal boolValue];
     
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("sixEnabled"), CFSTR("red.dingo.calypso"));
-    sixEnabled = tempVal ? YES : [tempVal boolValue];
+    sixEnabled = !tempVal ? YES : [tempVal boolValue];
     
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("sevenEnabled"), CFSTR("red.dingo.calypso"));
-    sevenEnabled = tempVal ? YES : [tempVal boolValue];
+    sevenEnabled = !tempVal ? YES : [tempVal boolValue];
     
     [tempVal release];
 }
+%end        
 
 %ctor {
 
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
         NULL,
         (CFNotificationCallback)loadPreferences,
-        CFSTR("red.dingo.calyspo/settingschanged"),
+        CFSTR("red.dingo.calypso/settingschanged"),
         NULL,
         CFNotificationSuspensionBehaviorDeliverImmediately);
     loadPreferences();
 
     if (masterEnabled)
         %init(EVERYTHING);
-}
-%end
+    }

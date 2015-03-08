@@ -6,6 +6,9 @@ BOOL fourEnabled;
 BOOL fiveEnabled;
 BOOL sixEnabled;
 BOOL sevenEnabled;
+BOOL eightEnabled;
+BOOL nineEnabled;
+BOOL tenEnabled;
 
 %group EVERYTHING
 
@@ -58,6 +61,22 @@ BOOL sevenEnabled;
 }
 %end
 
+%hook SpringBoard
+-(bool) homeScreenRotationStyleWantsUIKitRotation
+{
+    return eightEnabled ? YES : %orig;
+}
+-(bool) homeScreenSupportsRotation
+{
+	return eightEnabled ? YES : %orig;
+}
+-(long long) homeScreenRotationStyle
+{
+	return nineEnabled ? 1 : %orig;		
+	return tenEnabled ? 2 : %orig;
+}
+%end
+
 static void loadPreferences() {
     CFPreferencesAppSynchronize(CFSTR("red.dingo.calypso"));
     NSNumber *tempVal;
@@ -85,7 +104,16 @@ static void loadPreferences() {
     
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("sevenEnabled"), CFSTR("red.dingo.calypso"));
     sevenEnabled = !tempVal ? YES : [tempVal boolValue];
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("eightEnabled"), CFSTR("red.dingo.calypso"));
+    eightEnabled = !tempVal ? YES : [tempVal boolValue];
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("nineEnabled"), CFSTR("red.dingo.calypso"));
+    nineEnabled = !tempVal ? YES : [tempVal boolValue];  
     
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("tenEnabled"), CFSTR("red.dingo.calypso"));
+    tenEnabled = !tempVal ? YES : [tempVal boolValue]; 
+
     [tempVal release];
 }
 %end        

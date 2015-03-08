@@ -72,8 +72,21 @@ BOOL tenEnabled;
 }
 -(long long) homeScreenRotationStyle
 {
-	return nineEnabled ? 1 : %orig;		
-	return tenEnabled ? 2 : %orig;
+if (nineEnabled)
+{
+	return 1;
+}
+else
+{
+	if (tenEnabled)
+	{
+		return 2;
+	}
+	else
+	{
+		return %orig;
+	}
+}
 }
 %end
 

@@ -5,7 +5,7 @@ include theos/makefiles/common.mk
 BUNDLE_NAME = Calypso
 Calypso_FILES = Calypso.mm
 Calypso_INSTALL_PATH = /Library/PreferenceBundles
-Calypso_FRAMEWORKS = UIKit
+Calypso_FRAMEWORKS = UIKit Twitter
 Calypso_PRIVATE_FRAMEWORKS = Preferences
 
 include $(THEOS_MAKE_PATH)/bundle.mk

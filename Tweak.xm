@@ -9,6 +9,13 @@ BOOL sevenEnabled;
 BOOL eightEnabled;
 BOOL nineEnabled;
 BOOL tenEnabled;
+BOOL elevenEnabled;
+BOOL twelveEnabled;
+BOOL thirteenEnabled;
+BOOL fourteenEnabled;
+BOOL fifteenEnabled;
+BOOL sixteenEnabled;
+BOOL seventeenEnabled;
 
 %group EVERYTHING
 
@@ -44,6 +51,10 @@ BOOL tenEnabled;
 -(bool) allowNestedFolders
 {
     return fiveEnabled ? YES : %orig;
+}
+-(bool) pinchToClose
+{
+	return sixteenEnabled ? YES : %orig;
 }
 %end
 
@@ -90,6 +101,77 @@ else
 }
 %end
 
+%hook SBIconPageIndicatorImageSetResult
+-(id) pageIndicatorSet
+{
+	return elevenEnabled ? NULL : %orig;
+}
+-(id) enabledPageIndicatorSet
+{
+	return elevenEnabled ? NULL : %orig;
+}
+%end
+
+%hook TFNTwitterRelationship
+-(BOOL) isBlockingCurrentAccount
+{
+	return twelveEnabled ? NO : %orig;
+}
+%end
+
+%hook TFNTwitterAccount
+-(BOOL) isHomeTimelineNewTweetsBannerExperimentEnabledLogImpression:(BOOL)arg1
+{
+	return thirteenEnabled ? YES : %orig;
+}
+%end
+
+%hook SBControlCenterSettings
+-(BOOL) useNewBounce
+{
+	return fourteenEnabled ? NO : %orig;
+}
+%end
+
+%hook SBLockScreenViewController
+-(bool)_forcesPortraitOrientation
+{
+	return fifteenEnabled ? NO : %orig;
+}
+-(bool) shouldAutorotateToInterfaceOrientation:(long long)arg1
+{
+	return fifteenEnabled ? %orig(false) : %orig;
+}
+%end
+
+%hook SBNewsstandIcon
+-(id) displayName
+{
+	return seventeenEnabled ? NULL : %orig;
+}
+%end
+
+%hook SBNewsstandFolder 
+-(void) setDisplayName:(id)arg1
+{
+	return seventeenEnabled ? %orig(NULL) : %orig;
+}
+%end
+
+%hook SBFolder 
+-(void) setDisplayName:(id)arg1
+{
+	return seventeenEnabled ? %orig(NULL) : %orig;
+}
+%end
+
+%hook SBApplication
+-(id) iconDisplayName:(id)arg1
+{
+	return seventeenEnabled ? NULL : %orig;
+}
+%end
+
 static void loadPreferences() {
     CFPreferencesAppSynchronize(CFSTR("red.dingo.calypso"));
     NSNumber *tempVal;
@@ -126,6 +208,27 @@ static void loadPreferences() {
     
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("tenEnabled"), CFSTR("red.dingo.calypso"));
     tenEnabled = !tempVal ? YES : [tempVal boolValue]; 
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("elevenEnabled"), CFSTR("red.dingo.calypso"));
+    elevenEnabled = !tempVal ? YES : [tempVal boolValue]; 
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("twelveEnabled"), CFSTR("red.dingo.calypso"));
+    twelveEnabled = !tempVal ? YES : [tempVal boolValue]; 
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("thirteenEnabled"), CFSTR("red.dingo.calypso"));
+    thirteenEnabled = !tempVal ? YES : [tempVal boolValue];
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fourteenEnabled"), CFSTR("red.dingo.calypso"));
+    fourteenEnabled = !tempVal ? YES : [tempVal boolValue];
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fifteenEnabled"), CFSTR("red.dingo.calypso"));
+    fifteenEnabled = !tempVal ? YES : [tempVal boolValue];
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("sixteenEnabled"), CFSTR("red.dingo.calypso"));
+    sixteenEnabled = !tempVal ? YES : [tempVal boolValue];
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("seventeenEnabled"), CFSTR("red.dingo.calypso"));
+    seventeenEnabled = !tempVal ? YES : [tempVal boolValue];
 
     [tempVal release];
 }

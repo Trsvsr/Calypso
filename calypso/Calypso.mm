@@ -1,9 +1,13 @@
 #import <Preferences/PSSpecifier.h>
 #import <Preferences/PSListController.h>
+#import <Twitter/TWTweetComposeViewController.h>
 
 @interface CalypsoListController: PSListController {
 }
 @end
+
+#define kTintColor [UIColor colorWithRed:86.0/256.0 green:86.0/256.0 blue:92.0/256.0 alpha:1.0]
+#define kTweetText @"I'm using #Calypso by @T_Dogg_94 and @CPVideoMaker to access many internal settings of iOS!"
 
 @protocol PreferencesTableCustomView
 - (id)initWithSpecifier:(id)arg1;
@@ -69,6 +73,21 @@ system("killall -9 backboardd");
 - (void)save
 {
     [self.view endEditing:YES];
+}
+
+- (void)loadView {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(tweetSP:)];
+        //self.navigationItem.rightBarButtonItem.tintColor = kTintColor;
+    [super loadView];
+    [UISwitch appearanceWhenContainedIn:self.class, nil].onTintColor = kTintColor;
+
+}
+
+- (void)tweetSP:(id)sender {
+    TWTweetComposeViewController *tweetController = [[TWTweetComposeViewController alloc] init];
+    [tweetController setInitialText:kTweetText];
+    [self.navigationController presentViewController:tweetController animated:YES completion:nil];
+    [tweetController release];
 }
 - (void)followTwitter:(id)sender {
     UIApplication *app = [UIApplication sharedApplication];

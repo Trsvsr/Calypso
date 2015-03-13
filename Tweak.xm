@@ -140,7 +140,7 @@ else
 }
 -(bool) shouldAutorotateToInterfaceOrientation:(long long)arg1
 {
-	return fifteenEnabled ? %orig(false) : %orig;
+	return fifteenEnabled ? NO : %orig;
 }
 %end
 

@@ -16,13 +16,13 @@
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
-			<string>red.dingo.calyspo</string>
+			<string>red.dingo.calypso</string>
 			<key>key</key>
 			<string>masterEnabled</string>
 			<key>label</key>
@@ -32,11 +32,127 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
+			<string>Calypso - Twitter Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>twelveEnabled</string>
+			<key>label</key>
+			<string>See Blocked Tweets</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>thirteenEnabled</string>
+			<key>label</key>
+			<string>New Tweets Banner</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Page Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>elevenEnabled</string>
+			<key>label</key>
+			<string>No Page Dots</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Calypso - Rotation Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>eightEnabled</string>
+			<key>label</key>
+			<string>Force Enable HS Rotation</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>nineEnabled</string>
+			<key>label</key>
+			<string>iPad Dock Rotation</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>tenEnabled</string>
+			<key>label</key>
+			<string>iPhone 6+ Dock Rotation</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>fifteenEnabled</string>
+			<key>label</key>
+			<string>Force Enable LS Rotation</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
 			<string>Calypso - Assistant Settings</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -56,7 +172,7 @@
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -76,7 +192,7 @@
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -90,7 +206,7 @@
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -110,7 +226,7 @@
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -123,6 +239,20 @@
 			<string>Allow Nested Folders</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>sixteenEnabled</string>
+			<key>label</key>
+			<string>Pinch to Close</string>
+		</dict>			
+		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
@@ -130,7 +260,7 @@
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -143,6 +273,20 @@
 			<string>Never Show Beta Dot</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>seventeenEnabled</string>
+			<key>label</key>
+			<string>Remove Icon Labels</string>
+		</dict>		
+		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
@@ -150,7 +294,7 @@
 		</dict>
 		<dict>
 			<key>PostNotification</key>
-			<string>red.dingo.calyspo/settingschanged</string>
+			<string>red.dingo.calypso/settingschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -161,6 +305,20 @@
 			<string>sevenEnabled</string>
 			<key>label</key>
 			<string>Faster Animations</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>fourteenEnabled</string>
+			<key>label</key>
+			<string>Use Old CC Bounce</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
@@ -182,19 +340,23 @@
 		</dict>
 		<dict>
 			<key>action</key>
-			<string>followTwitter:</string>
+			<string>followTwitter</string>
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
 			<string>Follow me on Twitter</string>
+			<key>icon</key>
+			<string>twitter.png</string>
 		</dict>
 		<dict>
 			<key>action</key>
-			<string>followDingoTwitter:</string>
+			<string>followDingoTwitter</string>
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
 			<string>Follow Dingo on Twitter</string>
+			<key>icon</key>
+			<string>twitter.png</string>
 		</dict>
 	</array>
 	<key>title</key>

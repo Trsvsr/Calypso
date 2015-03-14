@@ -20,6 +20,7 @@
 @interface CalypsoCustomCell : UITableViewCell <PreferencesTableCustomView> {
     UILabel *label;
     UILabel *underLabel;
+    UILabel *easterEggText;
 }
 @end
 
@@ -28,9 +29,13 @@
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     if (self) {
-        int width = [[UIScreen mainScreen] bounds].size.width;
-        CGRect labelFrame = CGRectMake(0, -15, width, 60);
-        CGRect underLabelFrame = CGRectMake(0, 20, width, 60);
+        //bad idea to use UIScreen and Bounds, iPads don't like that
+        //int width = [[UIScreen mainScreen] bounds].size.width;
+        //so instead, let's use this
+        #define kWidth [[UIApplication sharedApplication] keyWindow].frame.size.width
+        CGRect labelFrame = CGRectMake(0, -15, kWidth, 60);
+        CGRect underLabelFrame = CGRectMake(0, 20, kWidth, 60);
+        CGRect centeredText = CGRectMake(0,-200, kWidth, 60);
         
         label = [[UILabel alloc] initWithFrame:labelFrame];
         [label setNumberOfLines:1];
@@ -47,9 +52,18 @@
         [underLabel setBackgroundColor:[UIColor clearColor]];
         underLabel.textColor = [UIColor grayColor];
         underLabel.textAlignment = NSTextAlignmentCenter;
+
+        easterEggText = [[UILabel alloc] initWithFrame:centeredText];
+        [easterEggText setNumberOfLines:1];
+        easterEggText.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+        [easterEggText setText:@"Nothing special to see here, go back down."];
+        [easterEggText setBackgroundColor:[UIColor clearColor]];
+        easterEggText.textColor = [UIColor grayColor];
+        easterEggText.textAlignment = NSTextAlignmentCenter;
         
         [self addSubview:label];
         [self addSubview:underLabel];
+        [self addSubview:easterEggText];
         
     }
     return self;
@@ -89,8 +103,26 @@ system("killall -9 backboardd");
     [self.navigationController presentViewController:tweetController animated:YES completion:nil];
     [tweetController release];
 }
-- (void)followTwitter:(id)sender {
-    UIApplication *app = [UIApplication sharedApplication];
+- (void)followTwitter {
+    //supports much many more twieeter accounts thi sywa 
+    //holy shit i can't type today
+    NSString *user = @"T_Dogg_94";
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tweetbot:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tweetbot:///user_profile/" stringByAppendingString:user]]];
+    
+    else if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitterrific:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"twitterrific:///profile?screen_name=" stringByAppendingString:user]]];
+    
+    else if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tweetings:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tweetings:///user?screen_name=" stringByAppendingString:user]]];
+    
+    else if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"twitter://user?screen_name=" stringByAppendingString:user]]];
+    
+    else
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"https://mobile.twitter.com/" stringByAppendingString:user]]];
+
+    /*UIApplication *app = [UIApplication sharedApplication];
     NSURL *tweetbot = [NSURL URLWithString:@"tweetbot:///user_profile/T_Dogg_94"];
     if ([app canOpenURL:tweetbot]) {
         [app openURL:tweetbot];
@@ -106,26 +138,24 @@ system("killall -9 backboardd");
             NSURL *twitterweb = [NSURL URLWithString:@"http://twitter.com/T_Dogg_94"];
             [app openURL:twitterweb];
         }
-    }
+    }*/
 }
-- (void)followDingoTwitter:(id)sender {
-    UIApplication *app = [UIApplication sharedApplication];
-    NSURL *tweetbot = [NSURL URLWithString:@"tweetbot:///user_profile/CPVideoMaker"];
-    if ([app canOpenURL:tweetbot]) {
-        [app openURL:tweetbot];
-    }
+- (void)followDingoTwitter {
+   NSString *user = @"CPVideoMaker";
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tweetbot:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tweetbot:///user_profile/" stringByAppendingString:user]]];
     
-    else {
-        NSURL *twitterapp = [NSURL URLWithString:@"twitter:///user?screen_name=CPVideoMaker"];
-        if ([app canOpenURL:twitterapp]) {
-            [app openURL:twitterapp];
-        }
-        
-        else {
-            NSURL *twitterweb = [NSURL URLWithString:@"http://twitter.com/CPVideoMaker"];
-            [app openURL:twitterweb];
-        }
-    }
+    else if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitterrific:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"twitterrific:///profile?screen_name=" stringByAppendingString:user]]];
+    
+    else if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tweetings:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tweetings:///user?screen_name=" stringByAppendingString:user]]];
+    
+    else if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter:"]])
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"twitter://user?screen_name=" stringByAppendingString:user]]];
+    
+    else
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"https://mobile.twitter.com/" stringByAppendingString:user]]];
 }
 
 @end

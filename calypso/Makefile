@@ -1,6 +1,6 @@
 ARCHS = arm64 armv7
-
-include theos/makefiles/common.mk
+#change $(THEOS) to theos if this doesn't compile properly for you
+include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = Calypso
 Calypso_FILES = Calypso.mm

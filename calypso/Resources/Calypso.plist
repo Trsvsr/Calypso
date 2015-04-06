@@ -44,7 +44,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>twelveEnabled</string>
+			<string>NotBlocked</string>
 			<key>label</key>
 			<string>See Blocked Tweets</string>
 		</dict>
@@ -58,7 +58,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>thirteenEnabled</string>
+			<string>NewTweets</string>
 			<key>label</key>
 			<string>New Tweets Banner</string>
 		</dict>
@@ -78,7 +78,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>elevenEnabled</string>
+			<string>NoPageDots</string>
 			<key>label</key>
 			<string>No Page Dots</string>
 		</dict>
@@ -98,7 +98,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>eightEnabled</string>
+			<string>HSRotate</string>
 			<key>label</key>
 			<string>Force Enable HS Rotation</string>
 		</dict>
@@ -112,7 +112,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>nineEnabled</string>
+			<string>iPadDock</string>
 			<key>label</key>
 			<string>iPad Dock Rotation</string>
 		</dict>
@@ -126,7 +126,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>tenEnabled</string>
+			<string>StaticDock</string>
 			<key>label</key>
 			<string>iPhone 6+ Dock Rotation</string>
 		</dict>
@@ -140,7 +140,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>fifteenEnabled</string>
+			<string>LSRotate</string>
 			<key>label</key>
 			<string>Force Enable LS Rotation</string>
 		</dict>
@@ -160,7 +160,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>oneEnabled</string>
+			<string>VoiceControl</string>
 			<key>label</key>
 			<string>Disable Voice Control</string>
 		</dict>
@@ -180,7 +180,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>twoEnabled</string>
+			<string>Spotlight</string>
 			<key>label</key>
 			<string>Disable Spotlight Search</string>
 		</dict>
@@ -200,7 +200,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>threeEnabled</string>
+			<string>LSBlur</string>
 			<key>label</key>
 			<string>Disable LS Blur</string>
 		</dict>
@@ -214,7 +214,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>fourEnabled</string>
+			<string>LSTint</string>
 			<key>label</key>
 			<string>Disable LS Tint</string>
 		</dict>
@@ -234,7 +234,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>fiveEnabled</string>
+			<string>Nested</string>
 			<key>label</key>
 			<string>Allow Nested Folders</string>
 		</dict>
@@ -248,10 +248,24 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>sixteenEnabled</string>
+			<string>PinchToClose</string>
 			<key>label</key>
 			<string>Pinch to Close</string>
-		</dict>			
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>red.dingo.calypso/settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>red.dingo.calypso</string>
+			<key>key</key>
+			<string>NewsFolder</string>
+			<key>label</key>
+			<string>Newsstand Folders</string>
+		</dict>
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
@@ -268,7 +282,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>sixEnabled</string>
+			<string>BetaDot</string>
 			<key>label</key>
 			<string>Never Show Beta Dot</string>
 		</dict>
@@ -282,7 +296,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>seventeenEnabled</string>
+			<string>NoLabels</string>
 			<key>label</key>
 			<string>Remove Icon Labels</string>
 		</dict>		
@@ -302,7 +316,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>sevenEnabled</string>
+			<string>SlowAnim</string>
 			<key>label</key>
 			<string>Faster Animations</string>
 		</dict>
@@ -316,7 +330,7 @@
 			<key>defaults</key>
 			<string>red.dingo.calypso</string>
 			<key>key</key>
-			<string>fourteenEnabled</string>
+			<string>OldBounce</string>
 			<key>label</key>
 			<string>Use Old CC Bounce</string>
 		</dict>
@@ -343,20 +357,20 @@
 			<string>followTwitter</string>
 			<key>cell</key>
 			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Follow me on Twitter</string>
 			<key>icon</key>
 			<string>twitter.png</string>
+			<key>label</key>
+			<string>Follow me on Twitter</string>
 		</dict>
 		<dict>
 			<key>action</key>
 			<string>followDingoTwitter</string>
 			<key>cell</key>
 			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Follow Dingo on Twitter</string>
 			<key>icon</key>
 			<string>twitter.png</string>
+			<key>label</key>
+			<string>Follow Dingo on Twitter</string>
 		</dict>
 	</array>
 	<key>title</key>

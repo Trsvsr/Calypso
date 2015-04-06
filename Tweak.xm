@@ -1,95 +1,96 @@
 BOOL masterEnabled;
-BOOL oneEnabled;
-BOOL twoEnabled;
-BOOL threeEnabled;
-BOOL fourEnabled;
-BOOL fiveEnabled;
-BOOL sixEnabled;
-BOOL sevenEnabled;
-BOOL eightEnabled;
-BOOL nineEnabled;
-BOOL tenEnabled;
-BOOL elevenEnabled;
-BOOL twelveEnabled;
-BOOL thirteenEnabled;
-BOOL fourteenEnabled;
-BOOL fifteenEnabled;
-BOOL sixteenEnabled;
-BOOL seventeenEnabled;
+BOOL VoiceControl;
+BOOL Spotlight;
+BOOL LSBlur;
+BOOL LSTint;
+BOOL Nested;
+BOOL BetaDot;
+BOOL SlowAnim;
+BOOL HSRotate;
+BOOL iPadDock;
+BOOL StaticDock;
+BOOL NoPageDots;
+BOOL NotBlocked;
+BOOL NewTweets;
+BOOL OldBounce;
+BOOL LSRotate;
+BOOL PinchToClose;
+BOOL NoLabels;
+BOOL NewsFolder;
 
 %group EVERYTHING
 
 %hook SBVoiceControlController
 -(bool) handleHomeButtonHeld
 {
-    return oneEnabled ? NO : %orig;
+    return VoiceControl ? NO : %orig;
 }
 %end
 
 %hook SBSearchScrollView
 -(bool) gestureRecognizerShouldBegin:(id)arg1
 {
-    return twoEnabled ? NO : %orig;
+    return Spotlight ? NO : %orig;
 }
 %end
 
 %hook SBLockOverlayStyleProperties
 -(CGFloat) blurRadius
 {
-    return threeEnabled ? 0 : %orig;
+    return LSBlur ? 0 : %orig;
 }
 %end
 
 %hook SBLockOverlayStyleProperties   
 -(CGFloat) tintAlpha
 {
-    return fourEnabled ? 0 : %orig;
+    return LSTint ? 0 : %orig;
 }
 %end
 
 %hook SBFolderSettings
 -(bool) allowNestedFolders
 {
-    return fiveEnabled ? YES : %orig;
+    return Nested ? YES : %orig;
 }
 -(bool) pinchToClose
 {
-	return sixteenEnabled ? YES : %orig;
+	return PinchToClose ? YES : %orig;
 }
 %end
 
 %hook SBLeafIcon
 -(bool) isBeta
 {
-    return sixEnabled ? NO : %orig;
+    return BetaDot ? NO : %orig;
 }    
 %end
 
 %hook SBFAnimationFactorySettings
 -(void) setSlowAnimations:(bool)arg1
 {
-    return sevenEnabled ? %orig(false) : %orig;
+    return SlowAnim ? %orig(false) : %orig;
 }
 %end
 
 %hook SpringBoard
 -(bool) homeScreenRotationStyleWantsUIKitRotation
 {
-    return eightEnabled ? YES : %orig;
+    return HSRotate ? YES : %orig;
 }
 -(bool) homeScreenSupportsRotation
 {
-	return eightEnabled ? YES : %orig;
+	return HSRotate ? YES : %orig;
 }
 -(long long) homeScreenRotationStyle
 {
-if (nineEnabled)
+if (iPadDock)
 {
 	return 1;
 }
 else
 {
-	if (tenEnabled)
+	if (StaticDock)
 	{
 		return 2;
 	}
@@ -104,71 +105,78 @@ else
 %hook SBIconPageIndicatorImageSetResult
 -(id) pageIndicatorSet
 {
-	return elevenEnabled ? NULL : %orig;
+	return NoPageDots ? NULL : %orig;
 }
 -(id) enabledPageIndicatorSet
 {
-	return elevenEnabled ? NULL : %orig;
+	return NoPageDots ? NULL : %orig;
 }
 %end
 
 %hook TFNTwitterRelationship
 -(BOOL) isBlockingCurrentAccount
 {
-	return twelveEnabled ? NO : %orig;
+	return NotBlocked ? NO : %orig;
 }
 %end
 
 %hook TFNTwitterAccount
 -(BOOL) isHomeTimelineNewTweetsBannerExperimentEnabledLogImpression:(BOOL)arg1
 {
-	return thirteenEnabled ? YES : %orig;
+	return NewTweets ? YES : %orig;
 }
 %end
 
 %hook SBControlCenterSettings
 -(BOOL) useNewBounce
 {
-	return fourteenEnabled ? NO : %orig;
+	return OldBounce ? NO : %orig;
 }
 %end
 
 %hook SBLockScreenViewController
 -(bool)_forcesPortraitOrientation
 {
-	return fifteenEnabled ? NO : %orig;
+	return LSRotate ? NO : %orig;
 }
 -(bool) shouldAutorotateToInterfaceOrientation:(long long)arg1
 {
-	return fifteenEnabled ? NO : %orig;
+	return LSRotate ? NO : %orig;
 }
 %end
 
 %hook SBNewsstandIcon
 -(id) displayName
 {
-	return seventeenEnabled ? NULL : %orig;
+	return NoLabels ? NULL : %orig;
 }
 %end
 
 %hook SBNewsstandFolder 
 -(void) setDisplayName:(id)arg1
 {
-	return seventeenEnabled ? %orig(NULL) : %orig;
+	return NoLabels ? %orig(NULL) : %orig;
 }
 %end
 
 %hook SBFolder 
 -(void) setDisplayName:(id)arg1
 {
-	return seventeenEnabled ? %orig(NULL) : %orig;
+	return NoLabels ? %orig(NULL) : %orig;
 }
 %end
 
 %hook SBApplication
 -(id) iconDisplayName:(id)arg1
 {
-	return seventeenEnabled ? NULL : %orig;
+	return NoLabels ? NULL : %orig;
+}
+%end
+
+%hook SBFolder
+-(bool) isNewsstandFolder
+{
+	return NewsFolder ? YES : %orig;
 }
 %end
 
@@ -179,56 +187,59 @@ static void loadPreferences() {
     tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("masterEnabled"), CFSTR("red.dingo.calypso"));
     masterEnabled = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("oneEnabled"), CFSTR("red.dingo.calypso"));
-    oneEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("VoiceControl"), CFSTR("red.dingo.calypso"));
+    VoiceControl = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("twoEnabled"), CFSTR("red.dingo.calypso"));
-    twoEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("Spotlight"), CFSTR("red.dingo.calypso"));
+    Spotlight = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("threeEnabled"), CFSTR("red.dingo.calypso"));
-    threeEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("LSBlur"), CFSTR("red.dingo.calypso"));
+    LSBlur = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fourEnabled"), CFSTR("red.dingo.calypso"));
-    fourEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("LSTint"), CFSTR("red.dingo.calypso"));
+    LSTint = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fiveEnabled"), CFSTR("red.dingo.calypso"));
-    fiveEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("Nested"), CFSTR("red.dingo.calypso"));
+    Nested = !tempVal ? YES : [tempVal boolValue];
     
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("sixEnabled"), CFSTR("red.dingo.calypso"));
-    sixEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("BetaDot"), CFSTR("red.dingo.calypso"));
+    BetaDot = !tempVal ? YES : [tempVal boolValue];
     
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("sevenEnabled"), CFSTR("red.dingo.calypso"));
-    sevenEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("SlowAnim"), CFSTR("red.dingo.calypso"));
+    SlowAnim = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("eightEnabled"), CFSTR("red.dingo.calypso"));
-    eightEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("HSRotate"), CFSTR("red.dingo.calypso"));
+    HSRotate = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("nineEnabled"), CFSTR("red.dingo.calypso"));
-    nineEnabled = !tempVal ? YES : [tempVal boolValue];  
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("iPadDock"), CFSTR("red.dingo.calypso"));
+    iPadDock = !tempVal ? YES : [tempVal boolValue];  
     
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("tenEnabled"), CFSTR("red.dingo.calypso"));
-    tenEnabled = !tempVal ? YES : [tempVal boolValue]; 
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("StaticDock"), CFSTR("red.dingo.calypso"));
+    StaticDock = !tempVal ? YES : [tempVal boolValue]; 
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("elevenEnabled"), CFSTR("red.dingo.calypso"));
-    elevenEnabled = !tempVal ? YES : [tempVal boolValue]; 
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("NoPageDots"), CFSTR("red.dingo.calypso"));
+    NoPageDots = !tempVal ? YES : [tempVal boolValue]; 
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("twelveEnabled"), CFSTR("red.dingo.calypso"));
-    twelveEnabled = !tempVal ? YES : [tempVal boolValue]; 
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("NotBlocked"), CFSTR("red.dingo.calypso"));
+    NotBlocked = !tempVal ? YES : [tempVal boolValue]; 
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("thirteenEnabled"), CFSTR("red.dingo.calypso"));
-    thirteenEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("NewTweets"), CFSTR("red.dingo.calypso"));
+    NewTweets = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fourteenEnabled"), CFSTR("red.dingo.calypso"));
-    fourteenEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("OldBounce"), CFSTR("red.dingo.calypso"));
+    OldBounce = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("fifteenEnabled"), CFSTR("red.dingo.calypso"));
-    fifteenEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("LSRotate"), CFSTR("red.dingo.calypso"));
+    LSRotate = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("sixteenEnabled"), CFSTR("red.dingo.calypso"));
-    sixteenEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("PinchToClose"), CFSTR("red.dingo.calypso"));
+    PinchToClose = !tempVal ? YES : [tempVal boolValue];
 
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("seventeenEnabled"), CFSTR("red.dingo.calypso"));
-    seventeenEnabled = !tempVal ? YES : [tempVal boolValue];
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("NoLabels"), CFSTR("red.dingo.calypso"));
+    NoLabels = !tempVal ? YES : [tempVal boolValue];
+
+    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("NewsFolder"), CFSTR("red.dingo.calypso"));
+    NewsFolder = !tempVal ? YES : [tempVal boolValue];
 
     [tempVal release];
 }
